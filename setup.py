@@ -19,7 +19,7 @@ print(audio_samples)
 
 setup(
     name="syllable_samples",
-    version="0.0.0",
+    version="0.0.1",
     author="Jivan Amara",
     author_email="Development@JivanAmara.net",
     packages=['syllable_samples'],
