@@ -11,20 +11,24 @@ with open('README.rst', 'r') as rmf:
     README = rmf.read()
 
 audio_samples = [
-    os.path.join('syllable_samples/static/syllable_samples/', filename)
+    os.path.join('static/syllable_samples/', filename)
          for filename in os.listdir('syllable_samples/static/syllable_samples/')
 ]
 
-print(audio_samples)
+fixtures = [
+    os.path.join('fixtures', filename) for filename in os.listdir('syllable_samples/fixtures/')
+]
+
+data_files = audio_samples + fixtures
 
 setup(
     name="syllable_samples",
     version="0.0.1",
     author="Jivan Amara",
     author_email="Development@JivanAmara.net",
-    packages=['syllable_samples'],
+    packages=['syllable_samples', 'syllable_samples.migrations'],
     package_data={
-        'syllable_samples': audio_samples,
+        'syllable_samples': data_files,
     },
     description='Python library for recognizing the tone of a mandarin syllable',
     long_description=README,

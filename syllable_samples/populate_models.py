@@ -26,7 +26,7 @@ def populate_syllablesample():
 
     filenames = os.listdir(DIRPATH)
     for filename in filenames:
-        path = os.path.join('static/syllable_samples', filename)
+        path = os.path.join('syllable_samples', filename)
         # Without the extension
         name_only = filename.split('.')[0]
         sound = name_only[:-1]
@@ -38,11 +38,17 @@ def populate_syllablesample():
     SyllableSample.objects.bulk_create(new_syllablesamples)
 
 if __name__ == '__main__':
-    os.unlink(settings.DBPATH)
+    # Delete the database in case it already exists and has dated data in it.
+    try:
+        os.unlink(settings.DBPATH)
+    except:
+        pass
+
     call_command('makemigrations', 'syllable_samples')
     call_command('migrate')
+    SyllableSample.objects.all().delete()
     populate_syllablesample()
-    with open(os.path.join(PROJECT_PATH, 'syllable_samples/fixtures/initial.json'), 'w') as fixture:
+    with open(os.path.join(PROJECT_PATH, 'syllable_samples/fixtures/initial_data.json'), 'w') as fixture:
         real_stdout = sys.stdout
         sys.stdout = fixture
         call_command('dumpdata', 'syllable_samples')
