@@ -23,7 +23,7 @@ data_files = audio_samples + fixtures
 
 setup(
     name="syllable-samples",
-    version="0.1.1",
+    version="0.1.2",
     author="Jivan Amara",
     author_email="Development@JivanAmara.net",
     packages=['syllable_samples', 'syllable_samples.migrations'],
