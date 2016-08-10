@@ -15,7 +15,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'script_settings'
 django.setup()
 
 from django.conf import settings
-from django.core.management.commands.migrate import call_command
+from django.core.management import call_command
 from syllable_samples.models import SyllableSample
 
 def populate_syllablesample():
