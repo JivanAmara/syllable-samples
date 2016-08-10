@@ -52,4 +52,5 @@ if __name__ == '__main__':
         real_stdout = sys.stdout
         sys.stdout = fixture
         call_command('dumpdata', 'syllable_samples')
+        print('updated syllable_samples/fixtures/initial_data.json to match audio files in static/')
         sys.stdout = real_stdout
