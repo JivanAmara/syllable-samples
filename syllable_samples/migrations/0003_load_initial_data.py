@@ -17,7 +17,7 @@ def unload_fixture(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('syllable_samples', '0001_initial'),
+        ('syllable_samples', '0002_syllablesample_hanzi_examples_json_string'),
     ]
 
     operations = [

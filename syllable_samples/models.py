@@ -6,3 +6,4 @@ class SyllableSample(models.Model):
     sound = models.CharField(max_length=10)
     tone = models.IntegerField()
     display = models.CharField(max_length=10)
+    hanzi_examples_json_string = models.CharField(max_length=80, default='{}')
